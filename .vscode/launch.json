@@ -1,0 +1,51 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "RUN with build",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [
+              ],
+            "stopAtEntry": false,
+           // "cwd": "${workspaceFolder}",
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "launchCompleteCommand": "exec-run",
+            /*
+            macOS: When set to true, it will spawn an external console through lldb-mi. 
+                        When set to false, the output can be seen in VS Code's debugConsole. 
+                        Due to limitations within lldb-mi, integratedTerminal support is not available.
+            */
+            "externalConsole": true, // https://code.visualstudio.com/docs/cpp/launch-json-reference 
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: clang++ build active file"
+        }
+/*
+        ,
+
+        {
+            "name": "Debug and attach",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "processId":"${command:pickProcess}",
+          //  "externalConsole": false,
+            "MIMode": "lldb",
+           // "preLaunchTask": "C/C++: clang++ build active file"
+           "setupCommands": [
+            {
+                "description": "Enable pretty-printing for gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            }
+        ]
+        }
+        */
+        
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "/usr/bin/python3",
+    "files.associations": {
+        "iostream": "cpp"
+    },
+    "files.exclude": {
+        "**/.vscode": true,
+        "**/*.dSYM": true
+    }
+}
