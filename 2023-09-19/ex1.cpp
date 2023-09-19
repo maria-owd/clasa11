@@ -6,7 +6,7 @@ using namespace std;
 int main () {
     int n;
     int a[100][100];
-    int suma, cifra, min, max;
+    int suma, nrCifra, min, max;
 
     ifstream f("date1.in");
     f >> n;
@@ -30,14 +30,13 @@ int main () {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (i == j) {
-                suma = 0;
+                nrCifra = 0;
 
                 while (a[i][j] > 0) {
-                    cifra = a[i][j]%10;
-                    suma = suma + cifra;
+                    nrCifra++;
                     a[i][j] = a[i][j]/10;
                 }
-                a[i][j] = suma;
+                a[i][j] = nrCifra;
             }
         }
     }
@@ -72,15 +71,15 @@ int main () {
     suma = min + max;
     cout << "minim + maxim = " << min<< " + " << max << " = " << suma << endl;
 
-    cifra = 0;  // nr de cifre
+    nrCifra = 0;  // nr de cifre
     while (suma > 0) {
         if ((suma % 10) % 2 == 0) {
-            cifra++;
+            nrCifra++;
         }
        suma = suma/10; 
     }
 
-    if (cifra % 2 == 0) {
+    if (nrCifra % 2 == 0) {
         cout << "suma are număr par de cifre pare" << endl;
     } else {
         cout << "suma are număr impar de cifre pare" << endl;
