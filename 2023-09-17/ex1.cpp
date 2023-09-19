@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iostream>
 #include <fstream>
 
 using namespace std;
@@ -11,8 +10,7 @@ using namespace std;
  * 
  * apoi afisat pe randuri diferite toate perechile de indici (i,j) 
  * pentru care suma elementelor de pe pozitiile indicate de ele este nr. prim.
- * 
- * @return int 
+ 
  */
 int main () {
 
