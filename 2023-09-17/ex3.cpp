@@ -9,8 +9,7 @@ using namespace std;
  * Afișați cel mai mare, respectiv cel mai mic număr din vector, 
  *  precum și pozițiile pe care se găseau aceste numere în vector înainte de ordonarea acestuia.
  */
-
-    int main () {
+int main () {
 
     int n, v[100], aux;
     int max, min;
@@ -28,7 +27,6 @@ using namespace std;
         cout << v[i] << " ";
     }
     cout << endl;
-
 
     max = v[0];
     min = v[0];
