@@ -1,0 +1,11 @@
+*/*
+!.gitignore
+!**/*.cpp
+!**/*.in
+!**/*.h
+!**/*.c
+!**/*.html
+.DS_Store
+*.out
+**/tempCodeRunnerFile.cpp
+*tempCodeRunnerFile.cpp
