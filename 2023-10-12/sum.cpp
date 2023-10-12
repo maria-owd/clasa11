@@ -30,7 +30,11 @@ int main() {
             suma = suma + x;
         }
     }
-    cout << "suma = " << suma << endl;
-
+    if (suma == 0) {
+        cout << "Nu exista" << endl;
+    } else {
+        cout << "suma = " << suma << endl;
+    }
+    
     return 0;
 }
