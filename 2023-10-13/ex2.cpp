@@ -43,16 +43,16 @@ void s2(int &n, int k) {
 
 int main() {
     int n, a, b;
-
-   //cout << "n = ";
-   // cin >> n;
-    n = 121532;
-    a = 3;
-    b = 2;
-
     int cifreInitiale;
     int cifreFinale;
-
+    
+    cout << "n = ";
+    cin >> n;
+    cout << "a = ";
+    cin >> a;
+    cout << "b = ";
+    cin >> b;
+    
     cifreInitiale = s1(n);
     s2(n, a);
     s2(n, b);
