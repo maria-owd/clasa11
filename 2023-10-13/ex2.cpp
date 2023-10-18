@@ -4,7 +4,6 @@ using namespace std;
 /**
 * functia s1 afiseaza numarul de cifre ale parametrului n
 */
-
 int s1(int n) {
     int nr;
 
@@ -19,7 +18,6 @@ int s1(int n) {
 /**
 * functia s2 afiseaza numarul de cifre ale parametrului n
 */
-
 void s2(int &n, int k) {
     int copie, cifra, x;
     int poz;
