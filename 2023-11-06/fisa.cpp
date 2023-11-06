@@ -4,7 +4,7 @@
 using namespace std;
 
 void citire(int a[30][30], int &n) {
-    ifstream f("date.in");
+    ifstream f("date1.in");
     f >> n;
 
     for (int i = 0; i < n; i++) {
