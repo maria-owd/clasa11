@@ -1,7 +1,6 @@
 {
     "version": "2.0.0",
     "tasks": [
-        //https://code.visualstudio.com/docs/cpp/config-clang-mac
         {
             "label": "Open Terminal",
             "type": "shell",
@@ -37,6 +36,26 @@
                 "showReuseMessage": false,
                 "clear": true
             }
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ build active file",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: /usr/bin/g++"
         }
     ]
 }
