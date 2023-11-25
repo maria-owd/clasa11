@@ -3,7 +3,8 @@
     "files.associations": {
         "iostream": "cpp",
         "iosfwd": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "istream": "cpp"
     },
     "files.exclude": {
         "**/.vscode": true,
