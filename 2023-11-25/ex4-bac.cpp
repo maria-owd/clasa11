@@ -39,7 +39,7 @@ int main() {
     st = 0;
     poz = 1;
 
-    for (int cifra = 9; cifra >= 0; cifra--) {
+    for (int cifra = 0; cifra <= 9; cifra++) {
         int aparitii;
         aparitii = cif(n, cifra);
 
