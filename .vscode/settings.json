@@ -4,7 +4,8 @@
         "iostream": "cpp",
         "iosfwd": "cpp",
         "ostream": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "fstream": "cpp"
     },
     "files.exclude": {
         "**/.vscode": true,
