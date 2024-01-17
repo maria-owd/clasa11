@@ -14,10 +14,10 @@ int main() {
 
     cout << "fraza este: " << fraza << endl;
     
-    cuvant = strtok(fraza, sep); 
-    while (cuvant != NULL) {
-        cout << cuvant << endl;
-        cuvant = strtok(NULL, sep);
+    cuvant = strtok(fraza, sep);    // primul apel => primul cuvant
+    while (cuvant != NULL) {        // cuvant = NULL => s-a terminat fraza
+        cout << cuvant << endl;     // procesarea cuvantului curent
+        cuvant = strtok(NULL, sep); // urmatoarele cuvinte (NULL = de la ultima apelare)
     }
 
     return 0;
