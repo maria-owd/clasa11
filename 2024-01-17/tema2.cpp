@@ -11,7 +11,7 @@ using namespace std;
  * prima şi ultima literă a fiecărui cuvânt fiind afişată ca literă mare.
  * 
  * Exemplu: pentru şirul: 
- *      maine este proba la informatica, 
+ *      maine este proba la informatica
  * se va afişa:
  *      MainE EstE ProbA LA InformaticA
  */
