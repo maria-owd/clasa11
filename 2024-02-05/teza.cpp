@@ -4,9 +4,13 @@
 
 using namespace std;
 
+bool mare(char c) {
+    return (c >= 'A' && c <= 'Z');
+}
+
 bool litereMari(char s[]) {
     for (int i = 0; i < strlen(s); i++) {
-        if ('A' < s[i] || s[i] > 'Z') {
+        if (!mare(s[i])) {
             return false;
         }
     }
@@ -37,7 +41,7 @@ int main() {
             propozitii++;
         }
     }
-    cout << "linii cu 1 cuv doar cu litere mari: " << propozitii << endl;
+    cout  << endl << "linii cu 1 cuv doar cu litere mari: " << propozitii << endl;
     
     return 0;
 }
