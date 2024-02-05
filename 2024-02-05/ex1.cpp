@@ -32,7 +32,7 @@ int main() {
         p = strtok(s, sep);
         cuvinte = 0;
         while (p != NULL) {
-            if(litereMari(p) == 1) {
+            if (litereMari(p) == 1) {
                 cuvinte++;
             }
             p = strtok(NULL, sep);
