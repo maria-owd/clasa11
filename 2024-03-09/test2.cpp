@@ -7,20 +7,22 @@ int main()
 {
     int n;
     char generic[100][10];
-    char s[100][10];
-    char t[200] = "";
+    char s[100];
+    char t[200] = "x: ";
     char *cuv;
     int gasit;
     int ok;
 
-    ifstream f("date.in");
+    ifstream f("date2.in");
     f >> n;
 
     for (int i = 0; i < n; i++) {
         f >> generic[i];
+        cout << generic[i] << endl;
     }
+    f.get();
     f.getline(s, 100);
-
+    cout << s << endl;
     cuv = strtok(s, " ");
     while (cuv != NULL) {
         if (cuv[0] != '*') {
@@ -29,7 +31,7 @@ int main()
         } else {
             gasit = 0;
             for (int i = 0; i < n && !gasit; i++) {
-                if (strlen(cuv[i]) == strlen(generic[i])) {
+                if (strlen(cuv) == strlen(generic[i])) {
                     strcat(t, generic[i]);
                     strcat(t, " ");
                     gasit = 1;
