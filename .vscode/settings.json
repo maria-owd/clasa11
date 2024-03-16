@@ -5,7 +5,8 @@
         "iosfwd": "cpp",
         "ostream": "cpp",
         "istream": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "iomanip": "cpp"
     },
     "files.exclude": {
         "**/.vscode": true,
