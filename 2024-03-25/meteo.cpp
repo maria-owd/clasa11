@@ -35,7 +35,7 @@ void tempMax(Meteo m1, Meteo m2) {
 }
 
 void tempMedie(Meteo m1, Meteo m2) {
-    cout << "temperatura medie: " << (m1.temp + m2.temp)/2.0 << endl;;
+    cout << "temperatura medie: " << (m1.temp + m2.temp)/2.0 << "˚" << endl;;
 }
 
 int main() {
