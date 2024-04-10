@@ -6,7 +6,8 @@
         "ostream": "cpp",
         "istream": "cpp",
         "fstream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "__locale": "cpp"
     },
     "files.exclude": {
         "**/.vscode": true,
