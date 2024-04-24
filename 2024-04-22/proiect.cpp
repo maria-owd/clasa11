@@ -24,11 +24,11 @@ int meniu() {
     cout << "7. Afisarea numelui furnizorului de la care a cumparat cele mai multe produse" << endl;
     cout << "8. Afisati valoarea totala a stocului produselor din depozitul cofetariei." << endl;
     cout << "9. Membrii echipei" << endl;
-    cout << "10. Iesire din program" << endl;
+    cout << "0. Iesire din program" << endl;
 
     int opt;
 
-    cout << "Alegeti numarul optiunii: ";
+    cout << endl << endl << "Alegeti numarul optiunii: ";
     cin >> opt;
 
     return opt;
@@ -80,10 +80,85 @@ void afisare() {
     cout << "└"; linie(42); cout << "┴"; linie(4); cout << "┴"; linie(4); cout << "┴"; linie(32); cout << "┘" << endl;
 }
 
+/**
+ * filtreaza furnizorii unici
+ * 
+ * @param f   lista furnizorilor unico
+ * @param nf  numarul furnizorilor unici
+ */
+void furnizoriUnici(char f[50][50], int &nf) {
+    nf = 0;
+
+    for (int i = 0; i < n; i++) {
+        bool exista = false;
+        // cautam daca furnizorul exista in lista unica
+        for (int j = 0; j < nf; j++) {
+            if (strcmp(p[i].furnizor, f[j]) == 0) {
+                exista = true;
+                break;
+            }
+        }
+        if (!exista) {
+            strcpy(f[nf], p[i].furnizor);
+            nf++;
+        }
+    }
+}
+
+void afisareListaFurnizor(char *numeFurnizor) {
+    cout << endl << "Lista produselor cumparate de la " << numeFurnizor << ": " << endl;
+    for (int i = 0; i < n; i++) {
+        if (strcmp(numeFurnizor, p[i].furnizor) == 0) {
+            cout << "  - " << p[i].nume << endl;
+        }
+    }
+}
+
+void listaFurnizori() {
+    char f[50][50];     // lista funrnizori unici
+    int nf;             // numarul furnizorilor unici
+    
+    furnizoriUnici(f, nf);
+    cout << "Lista furnizorilor: " << endl;
+    for (int i = 0; i < nf; i++) {
+        cout << i+1 << ") " << f[i] << endl;
+    }
+
+    int x;
+    cout << "Pentru ce furnizor doriti lista produselor: ";
+    cin >> x;
+
+    if (x-1 >= 0 && x-1 < nf) {
+        afisareListaFurnizor(f[x-1]);
+    } else {
+        cout << "Eroare: furnizorul nu este in lista" << endl;
+    }
+}
+
+void ordonareProduse() {
+    produs aux;
+    bool ok;
+    do {
+        ok = true;
+        for (int i = 0; i < n-1; i++) {
+            if ((strcmp(p[i].nume, p[i+1].nume)) > 0 || (strcmp(p[i].nume, p[i+1].nume) == 0 && p[i].pret < p[i+1].pret)) {
+                aux = p[i];
+                p[i] = p[i+1];
+                p[i+1] = aux;
+
+                ok = false;
+            }
+        }
+    } while (!ok);
+}
+
+
 int main () {
     int opt;
     do {
+        cout << endl << endl;
         opt = meniu();
+        cout << endl << endl;
         switch(opt) {
             case 1: 
                 citire();
@@ -91,7 +166,14 @@ int main () {
             case 2:
                 afisare();
                 break;
-            case 10:
+            case 3:
+                listaFurnizori();
+                break; 
+            case 4:
+                ordonareProduse();
+                afisare();
+                break;
+            case 0:
                 // exit, nu facem nimic
                 break;
             default:
@@ -99,7 +181,7 @@ int main () {
                 cout << "Optiunea '" << opt << "' este gresita!" << endl;
         }
   
-    } while (opt != 10);
+    } while (opt);
 
 
 }
