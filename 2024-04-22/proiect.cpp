@@ -10,10 +10,7 @@ struct produs {
     char furnizor[50];
 } p[100];
 
-int meniu() {
-    cin.clear();
-    fflush(stdin);
-    
+int meniu() {    
     cout << endl << "Meniu cofetarie" << endl;
     cout << "1. Citire produse" << endl;
     cout << "2. Lista produselor din depozitul firmei" << endl;
@@ -30,7 +27,10 @@ int meniu() {
 
     cout << endl << endl << "Alegeti numarul optiunii: ";
     cin >> opt;
-
+    
+    cin.clear();
+    fflush(stdin);
+    
     return opt;
 }
 
@@ -152,6 +152,43 @@ void ordonareProduse() {
     } while (!ok);
 }
 
+void stergeProdus(int x) {
+    for (int i = x; i < n-1; i++) {
+        p[i] = p[i+1];
+    }
+    n--;
+}
+
+void alegeProdusStergere() {
+    char nume[50];
+    char furnizor[50];
+    bool gasit;
+
+    cout << "Numele produsului pe care il stergeti: ";
+    cin.getline(nume, 50);
+
+    cout << "Numele furnizorului produsului pe care il stergeti: ";
+    cin.getline(furnizor, 50);
+
+    gasit = false;
+    for (int i = 0; i < n; i++) {
+        if ((strcmp(p[i].nume, nume) == 0) && (strcmp(p[i].furnizor, furnizor) == 0)) {
+            stergeProdus(i);
+            cout << "Produsul " << i+1 << " a fost sters." << endl;
+            i--;
+            gasit = true;
+        }
+    }
+
+    if(gasit) {
+        afisare();
+    } else {
+        cout << "Nu am gasit produsul \"" << nume << "\" de la furnizorul \"" << furnizor << "\"" << endl;
+    }
+}
+
+
+
 
 int main () {
     int opt;
@@ -172,6 +209,9 @@ int main () {
             case 4:
                 ordonareProduse();
                 afisare();
+                break;
+            case 5:
+                alegeProdusStergere();
                 break;
             case 0:
                 // exit, nu facem nimic
