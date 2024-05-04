@@ -203,6 +203,32 @@ void adaugaProdus() {
     cout << "Produsul a fost adaugat" << endl;
 }
 
+void furnizorPopular() {
+    char f[50][50];     // lista funrnizori unici
+    int nf;             // numarul furnizorilor unici
+    int cantitati[50];  // numarul total al comenzilor la un furnizor
+    int iMaxim = 0;
+
+    furnizoriUnici(f, nf);
+
+    for (int i = 0; i < nf; i++) {
+        cantitati[i] = 0;
+
+        for (int j = 0; j < n; j++) {
+            if (strcmp(f[i], p[j].furnizor) == 0) {
+                cantitati[i] = cantitati[i] + p[j].cantitate;
+            }
+        }
+    }
+
+    for (int i = 0; i < nf; i++) {
+        if (cantitati[i] > cantitati[iMaxim]) {
+            iMaxim = i;
+        }
+    }
+
+    cout << "Furnizorul cu cele mai multe comenzi: " << f[iMaxim] << " cu " << cantitati[iMaxim] << " produse " << endl;
+}
 
 int main () {
     int opt;
@@ -229,6 +255,9 @@ int main () {
                 break;
             case 6:
                 adaugaProdus();
+                break;
+            case 7:
+                furnizorPopular();
                 break;
             case 0:
                 // exit, nu facem nimic
