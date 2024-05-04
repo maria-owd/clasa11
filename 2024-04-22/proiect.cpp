@@ -230,6 +230,23 @@ void furnizorPopular() {
     cout << "Furnizorul cu cele mai multe comenzi: " << f[iMaxim] << " cu " << cantitati[iMaxim] << " produse " << endl;
 }
 
+void stocCofetarie() {
+    int suma = 0;
+
+    for (int i = 0; i < n; i++) {
+        suma = suma + p[i].cantitate;
+    }
+
+    cout << "Stocul total: " << suma << endl;
+}
+
+void membriiEchipei() {
+    cout << "Membrii echipei: " << endl;
+    cout << "- " << "Maiorescu Maria" << endl;
+    cout << "- " << "Radu Alice" << endl;
+    cout << "- " << "Trofim Romira" << endl;
+}
+
 int main () {
     int opt;
     do {
@@ -258,6 +275,12 @@ int main () {
                 break;
             case 7:
                 furnizorPopular();
+                break;
+            case 8:
+                stocCofetarie();
+                break;
+            case 9:
+                membriiEchipei();
                 break;
             case 0:
                 // exit, nu facem nimic
