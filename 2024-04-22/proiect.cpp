@@ -180,14 +180,28 @@ void alegeProdusStergere() {
         }
     }
 
-    if(gasit) {
-        afisare();
-    } else {
-        cout << "Nu am gasit produsul \"" << nume << "\" de la furnizorul \"" << furnizor << "\"" << endl;
-    }
+    if (!gasit) {
+       cout << "Nu am gasit produsul \"" << nume << "\" de la furnizorul \"" << furnizor << "\"" << endl; 
+    } 
 }
 
+void adaugaProdus() {
+    cout << "Numele produsului pe care il adaugati: ";
+    cin.getline(p[n].nume, 50);
 
+    cout << "Numele furnizorului produsului pe care il adaugati: ";
+    cin.getline(p[n].furnizor, 50);
+
+    cout << "Cantitate: ";
+    cin >> p[n].cantitate;
+
+    cout << "Pret: ";
+    cin >> p[n].pret;
+
+    n++;
+
+    cout << "Produsul a fost adaugat" << endl;
+}
 
 
 int main () {
@@ -212,6 +226,9 @@ int main () {
                 break;
             case 5:
                 alegeProdusStergere();
+                break;
+            case 6:
+                adaugaProdus();
                 break;
             case 0:
                 // exit, nu facem nimic
