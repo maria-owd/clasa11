@@ -3,13 +3,16 @@
 #include <iomanip>
 using namespace std;
 
-int n;
+int n;  // numarul produselor
 struct produs {
     char nume[50];
     int cantitate, pret;
     char furnizor[50];
-} p[100];
+} p[100];  // produsele din cofetarie 
 
+/**
+ * Afisare logo cofetarie 
+ */
 void logo() {
     cout << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;   
@@ -23,6 +26,11 @@ void logo() {
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;                                        
 }
 
+/**
+ * Afisare meniu principal
+ * 
+ * @return int -> optiunea selectata
+ */
 int meniu() {   
     logo(); 
     cout << endl << "*** Meniu cofetarie ***" << endl << endl;
@@ -42,12 +50,16 @@ int meniu() {
     cout << endl << endl << "Alegeti numarul optiunii: ";
     cin >> opt;
     
-    cin.clear();
+    // sterge lista de caractere de la tastatura
+    cin.clear();  
     fflush(stdin);
     
     return opt;
 }
 
+/**
+ * Citire date din fisier
+ */
 void citire() {
     ifstream f("cofetarie.in");
     f >> n;
@@ -63,12 +75,20 @@ void citire() {
     cout << "Au fost citite " << n << " produse.";
 }
 
+/**
+ * Afisare linie orizontala, folosind caracter special ASCII
+ * 
+ * @param nr: lungimea liniei, in caractere 
+ */
 void linie(int nr) {
     for (int i = 0; i < nr; i++) {
         cout << "─";
     }
 }
 
+/**
+ * Afisare lista de produse, folosind caractere ASCII pentru tabel
+ */
 void afisare() {
     // linia de sus a tabelului
     cout << "┌"; linie(42); cout << "┬"; linie(4); cout << "┬"; linie(4); cout << "┬"; linie(22); cout << "┐" << endl;
@@ -95,10 +115,10 @@ void afisare() {
 }
 
 /**
- * filtreaza furnizorii unici
+ * Filtreaza furnizorii unici
  * 
- * @param f   lista furnizorilor unico
- * @param nf  numarul furnizorilor unici
+ * @param f   Lista furnizorilor unici
+ * @param nf  Numarul furnizorilor unici
  */
 void furnizoriUnici(char f[50][50], int &nf) {
     nf = 0;
@@ -119,6 +139,11 @@ void furnizoriUnici(char f[50][50], int &nf) {
     }
 }
 
+/**
+ * Afisare lista produse cumparate de la un furnizor transmis prin parametru
+ * 
+ * @param numeFurnizor -> numele furnizorului pentru care se afiseaza lista
+ */
 void afisareListaFurnizor(char *numeFurnizor) {
     cout << endl << "Lista produselor cumparate de la " << numeFurnizor << ": " << endl;
     for (int i = 0; i < n; i++) {
@@ -128,6 +153,10 @@ void afisareListaFurnizor(char *numeFurnizor) {
     }
 }
 
+/**
+ * Afisare lista furnizorilor, apoi afiseaza lista produselor cumparate  
+ * de la furnizorul ales
+ */
 void listaFurnizori() {
     char f[50][50];     // lista funrnizori unici
     int nf;             // numarul furnizorilor unici
@@ -149,6 +178,10 @@ void listaFurnizori() {
     }
 }
 
+/**
+ * Ordonarea produselor alfabetic dupa nume produsului, 
+ * iar la acelasi nume, descrescator după pret.
+ */
 void ordonareProduse() {
     produs aux;
     bool ok;
@@ -166,6 +199,11 @@ void ordonareProduse() {
     } while (!ok);
 }
 
+/**
+ * Sterge un produs din lista
+ * 
+ * @param x -> indicele produsului sters
+ */
 void stergeProdus(int x) {
     for (int i = x; i < n-1; i++) {
         p[i] = p[i+1];
@@ -173,6 +211,9 @@ void stergeProdus(int x) {
     n--;
 }
 
+/**
+ * Sterge un produs cu numele si furnizorul alesi de la tastatura
+ */
 void alegeProdusStergere() {
     char nume[50];
     char furnizor[50];
@@ -199,6 +240,9 @@ void alegeProdusStergere() {
     } 
 }
 
+/**
+ * Adauga un produs la finalul listei cu datele introduse de la tastatura
+ */
 void adaugaProdus() {
     cout << "Numele produsului pe care il adaugati: ";
     cin.getline(p[n].nume, 50);
@@ -217,14 +261,20 @@ void adaugaProdus() {
     cout << "Produsul a fost adaugat" << endl;
 }
 
+/**
+ * Calculeaza numarul produselor de la fiecare furnizor
+ * Afisarea furnizorului cu cele mai multe comenzi
+ */
 void furnizorPopular() {
     char f[50][50];     // lista funrnizori unici
     int nf;             // numarul furnizorilor unici
     int cantitati[50];  // numarul total al comenzilor la un furnizor
     int iMaxim = 0;
 
+    // identificarea furnizorilor unici
     furnizoriUnici(f, nf);
 
+    // calculare cantitate/furnizor
     for (int i = 0; i < nf; i++) {
         cantitati[i] = 0;
 
@@ -235,6 +285,7 @@ void furnizorPopular() {
         }
     }
 
+    // identificarea cantitatii maxime
     for (int i = 0; i < nf; i++) {
         if (cantitati[i] > cantitati[iMaxim]) {
             iMaxim = i;
@@ -244,6 +295,9 @@ void furnizorPopular() {
     cout << "Furnizorul cu cele mai multe comenzi: " << f[iMaxim] << " cu " << cantitati[iMaxim] << " produse " << endl;
 }
 
+/**
+ * Afisare stoc cofetarie
+ */
 void stocCofetarie() {
     int suma = 0;
 
@@ -254,6 +308,9 @@ void stocCofetarie() {
     cout << "Stocul total: " << suma << endl;
 }
 
+/**
+ * Afisare membrii echipei
+ */
 void membriiEchipei() {
     cout << "Membrii echipei: " << endl;
     cout << "♥ " << "Maiorescu Maria" << endl;
@@ -261,6 +318,10 @@ void membriiEchipei() {
     cout << "♥ " << "Trofim Romira" << endl;
 }
 
+/**
+ * Se afiseaza meniul principal
+ * Executarea functiei selectate, pana la iesire 
+ */
 int main () {
     int opt;
     do {
@@ -303,12 +364,13 @@ int main () {
                 // optiune gresita
                 cout << "Optiunea '" << opt << "' este gresita!" << endl;
         }
-  
+
+        // se asteapta apasare Enter pentru a vizualiza rezultatele 
         if (opt) {
             cout << endl << "Apasati Enter pentru a continua ..." ;
             cin.get();
         }
     } while (opt);
 
-
+    return 0;
 }
