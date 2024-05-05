@@ -71,27 +71,27 @@ void linie(int nr) {
 
 void afisare() {
     // linia de sus a tabelului
-    cout << "┌"; linie(42); cout << "┬"; linie(4); cout << "┬"; linie(4); cout << "┬"; linie(32); cout << "┐" << endl;
+    cout << "┌"; linie(42); cout << "┬"; linie(4); cout << "┬"; linie(4); cout << "┬"; linie(22); cout << "┐" << endl;
 
     // titlul tabelului
     cout << "│ " << left << setw(40) << "Denumirea sortimentului" << " │ ";
     cout << right << setw(2) << "Ct" << " │ ";
     cout << right << setw(2) << "Pr" << " │ ";
-    cout << left << setw(30) << "Furnizor" << " │" << endl;
+    cout << left << setw(20) << "Furnizor" << " │" << endl;
 
     // linia de jos a titlului
-    cout << "├"; linie(42); cout << "┼"; linie(4); cout << "┼"; linie(4); cout << "┼"; linie(32); cout << "┤" << endl;
+    cout << "├"; linie(42); cout << "┼"; linie(4); cout << "┼"; linie(4); cout << "┼"; linie(22); cout << "┤" << endl;
 
     // lista de produse
     for (int i = 0; i < n; i++) {
         cout << "│ " << left << setw(40) << p[i].nume << " │ ";
         cout << right << setw(2) << p[i].cantitate << " │ ";
         cout << right << setw(2) << p[i].pret << " │ ";
-        cout << left << setw(30) << p[i].furnizor << " │" << endl;
+        cout << left << setw(20) << p[i].furnizor << " │" << endl;
     }
     
     // linia de jos
-    cout << "└"; linie(42); cout << "┴"; linie(4); cout << "┴"; linie(4); cout << "┴"; linie(32); cout << "┘" << endl;
+    cout << "└"; linie(42); cout << "┴"; linie(4); cout << "┴"; linie(4); cout << "┴"; linie(22); cout << "┘" << endl;
 }
 
 /**
@@ -256,9 +256,9 @@ void stocCofetarie() {
 
 void membriiEchipei() {
     cout << "Membrii echipei: " << endl;
-    cout << "- " << "Maiorescu Maria" << endl;
-    cout << "- " << "Radu Alice" << endl;
-    cout << "- " << "Trofim Romira" << endl;
+    cout << "♥ " << "Maiorescu Maria" << endl;
+    cout << "♥ " << "Radu Alice" << endl;
+    cout << "♥ " << "Trofim Romira" << endl;
 }
 
 int main () {
@@ -305,7 +305,7 @@ int main () {
         }
   
         if (opt) {
-            cout << endl << "Apasati Enter pentru a continua" ;
+            cout << endl << "Apasati Enter pentru a continua ..." ;
             cin.get();
         }
     } while (opt);
