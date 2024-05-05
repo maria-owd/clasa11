@@ -10,8 +10,22 @@ struct produs {
     char furnizor[50];
 } p[100];
 
-int meniu() {    
-    cout << endl << "Meniu cofetarie" << endl;
+void logo() {
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;   
+    cout << "______ _                        __             _   " << endl;     
+    cout << "| ___ (_)                      / _|           | |       " << endl;
+    cout << "| |_/ /_  ___  ___ ___    ___ | |_    ___ __ _| | _____ " << endl;
+    cout << "|  __/| |/ _ \\/ __/ _ \\  / _ \\|  _|  / __/ _` | |/ / _ \\" << endl;
+    cout << "| |   | |  __/ (_|  __/ | (_) | |   | (_| (_| |   <  __/" << endl;
+    cout << "\\_|   |_|\\___|\\___\\___|  \\___/|_|    \\___\\__,_|_|\\_\\___|" << endl;
+    cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;                                        
+}
+
+int meniu() {   
+    logo(); 
+    cout << endl << "*** Meniu cofetarie ***" << endl << endl;
     cout << "1. Citire produse" << endl;
     cout << "2. Lista produselor din depozitul firmei" << endl;
     cout << "3. Lista produselor cumparate de la furnizorul cu numele citit de la tastatura" << endl;
@@ -290,6 +304,10 @@ int main () {
                 cout << "Optiunea '" << opt << "' este gresita!" << endl;
         }
   
+        if (opt) {
+            cout << endl << "Apasati Enter pentru a continua" ;
+            cin.get();
+        }
     } while (opt);
 
 
