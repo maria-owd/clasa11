@@ -11,13 +11,12 @@ using namespace std;
 */
 
 int v[100];
-void citire(int k, int pozMax) {
-    if (k == pozMax) {
-        return;
-    }    
+void citire(int k, int pozMax) { 
     cout << "v[" << k << "] = ";
     cin >> v[k];
-    citire(k+1, pozMax);
+    if (k < pozMax) {
+        citire(k+1, pozMax);
+    }
 } 
 
 void afisare(int k, int pozMax) {
