@@ -1,16 +1,23 @@
 #include <iostream>
 using namespace std;
 
-int n, k, st[10], nrSol;
+int n, p, k, st[10], nrSol;
 
-// in functie de problema
+// 1. cifre diferite
+// 2. cifre crescatoare
 bool validPanaAici(int k) {
-    for (int i = 1; i < k; i++)
-        if (st[i] == st[k])
+    for (int i = 1; i < k; i++) {
+        if (st[i] == st[k]) {
             return false;
+        }
+    }     
+    for (int i = 1; i <= k-1; i++) {
+        if (st[i+1] < st[i]) {
+            return false;
+        }
+    }   
     return true;
 }
-
 
 void initializare(int k) {
     st[k] = 0;
@@ -26,7 +33,7 @@ bool alegSuccesor(int k) {
 }
 
 bool variantaFinala(int k) {
-    return k == n;
+    return k == p;
 }
 
 void afisare(int k) {
@@ -54,10 +61,11 @@ void backtracking() {
     }
 }
 
-int main()
-{
-    n = 3;
+int main() {
+    n = 4;
+    p = 3;
     backtracking();
-    cout << "S-au generat " << nrSol << " solutii.\n";
+    cout << "S-au generat " << nrSol << " solutii" << endl;
+
     return 0;
 }
